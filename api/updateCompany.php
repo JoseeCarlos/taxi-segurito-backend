@@ -18,6 +18,6 @@ try {
         "id" => $id
     ));
     echo json_encode("Success");
-} catch (\Exception $e) {
+} catch (Exception $e) {
     echo json_encode($e);
 }
