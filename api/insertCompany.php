@@ -7,7 +7,6 @@ $nit = isset($_POST['nit']) ? $_POST['nit'] : "";*/
 $name = $_POST['name'];
 $nit = $_POST['nit'];
 try {
-    $pdo->beginTransaction();
     $insertSql = "
     INSERT INTO `company`(`name`,`state`, `NIT`) 
     VALUES (:name, 1, :nit)
@@ -17,9 +16,7 @@ try {
         "name" => $name,
         "nit" => $nit,
     ));
-    $pdo->commit();
     echo json_encode("Success");
 } catch (Exception $e) {
-    $db->rollback();
     echo json_encode($e);
 }
