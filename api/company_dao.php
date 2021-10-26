@@ -9,7 +9,15 @@ class CompanyDAO {
         $this->pdo = DBConnection::GetConnection();
     }
 
-    public function insert(Company $company) {
+    public function insert($jsonCompany) {
+        $companyArray = json_decode($jsonCompany, true);
+        $company = new Company(
+            0,
+            $companyArray['name'],
+            $companyArray['nit'],
+            1
+        );
+
         try {
             $query = "INSERT INTO company(name, `NIT`, state) VALUES (:name, :nit, 1)";
             $params = [
@@ -19,7 +27,7 @@ class CompanyDAO {
 
             $statement = $this->pdo->prepare($query);
             $statement->execute($params);
-            return json_encode("success");
+            return "success";
 
         } catch (Exception $e) {
             echo json_encode($e);

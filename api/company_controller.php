@@ -12,7 +12,7 @@ switch($requestMethod) {
         break;
     case 'POST':
         $jsonCompany = file_get_contents('php://input');
-        // echo $companyDao->insert(Company::fromJson($jsonCompany));
+        echo json_encode($companyDao->insert($jsonCompany));
         echo $jsonCompany;
         break;
     case 'PUT':
