@@ -13,6 +13,6 @@ switch($requestMethod) {
         break;
     case 'PUT':
         $jsonCompany = file_get_contents('php://input');
-        echo json_encode($companyDao->update(Company::fromJson($jsonCompany)));
+        echo $companyDao->update(Company::fromJson($jsonCompany));
         break;
 }
