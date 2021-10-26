@@ -19,7 +19,7 @@ try {
     ));
     $pdo->commit();
     echo json_encode("Success");
-} catch (\Exception $e) {
+} catch (Exception $e) {
     $db->rollback();
     echo json_encode($e);
 }
