@@ -40,7 +40,7 @@ class CompanyDAO {
             $companyArray['id'],
             $companyArray['name'],
             $companyArray['nit'],
-            $companyArray['status']
+            $companyArray['state']
         );
 
         try {
