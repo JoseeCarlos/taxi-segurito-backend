@@ -12,16 +12,6 @@ class Company implements JsonSerializable {
         $this->status = $status;
     }
 
-    // public static function fromJson($json) {
-    //     $companyArray = json_decode($json, true);
-    //     return new Company(
-    //         $companyArray['id'],
-    //         $companyArray['name'],
-    //         $companyArray['nit'],
-    //         $companyArray['status'],
-    //     );
-    // }
-
     public function jsonSerialize()
     {
         return [

@@ -34,15 +34,25 @@ class CompanyDAO {
         }
     }
 
-    public function update(Company $company) {
+    public function update($jsonCompany) {
+        $companyArray = json_decode($jsonCompany, true);
+        $company = new Company(
+            $companyArray['id'],
+            $companyArray['name'],
+            $companyArray['nit'],
+            $companyArray['status']
+        );
+
         try {
             $query = "UPDATE company SET
                 name = :name,
-                `NIT` = :nit
+                `NIT` = :nit,
+                status = :status
             WHERE idCompany = :id";
             $params = [
                 "name" => $company->name,
                 "nit" => $company->nit,
+                "status" => $company->status,
                 "id" => $company->id
             ];
 
