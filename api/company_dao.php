@@ -58,7 +58,7 @@ class CompanyDAO {
 
             $statement = $this->pdo->prepare($query);
             $statement->execute($params);
-            return json_encode("success");
+            return "success";
 
         } catch (Exception $e) {
             echo json_encode($e);
