@@ -40,14 +40,14 @@ class CompanyDAO {
             $companyArray['id'],
             $companyArray['name'],
             $companyArray['nit'],
-            $companyArray['state']
+            $companyArray['status']
         );
 
         try {
             $query = "UPDATE company SET
                 name = :name,
                 `NIT` = :nit,
-                status = :status
+                state = :status
             WHERE idCompany = :id";
             $params = [
                 "name" => $company->name,
